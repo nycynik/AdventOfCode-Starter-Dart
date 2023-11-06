@@ -2,11 +2,16 @@ import 'dart:async';
 import 'dart:io';
 
 /// Small Program to be used to generate files and boilerplate for a given day.\
-/// Call with `dart run day_generator.dart <day>`
+/// Call with `dart run day_generator.dart --dart-define-from-file=env.json <day>`
 void main(List<String?> args) async {
-  String year = '2022';
-  String session = '<your session cookie here>';
 
+  const String year = String.fromEnvironment('YEAR', defaultValue: '2023');
+  const String session = String.fromEnvironment('SESSION', defaultValue: '');
+
+  if (session.isEmpty) {
+    print("Environment not configured, pelase check your env.json file");
+  }
+  
   if (args.length > 1) {
     print('Please call with: <dayNumber>');
     return;
