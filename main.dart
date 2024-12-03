@@ -1,5 +1,7 @@
+// ignore_for_file: avoid_function_literals_in_foreach_calls
+
 import 'solutions/index.dart';
-import 'utils/generic_day.dart';
+import 'tool/generic_day.dart';
 
 /// List holding all the solution classes.
 final days = <GenericDay>[
@@ -7,7 +9,7 @@ final days = <GenericDay>[
 ];
 
 void main(List<String?> args) {
-  bool onlyShowLast = true;
+  var onlyShowLast = true;
 
   if (args.length == 1 && args[0].isHelperArgument()) {
     printHelper();
